@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const createError = require('http-errors');
-const Packages = require('../../../models/PackageModel');
-const AddPackage = async (req,res,next)=>{
+const Blogs = require('../../../models/BlogModel');
+const AddBlog = async (req,res,next)=>{
  try{
-  const result = await  Packages(req.body).save() ;
+  const result = await Blogs(req.body).save() ;
   res.send(result);
 
  }catch(err){
@@ -12,5 +12,5 @@ const AddPackage = async (req,res,next)=>{
  }
 }
 
-module.exports = AddPackage;
+module.exports = AddBlog;
 

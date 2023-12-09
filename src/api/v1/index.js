@@ -2,7 +2,7 @@ const express  = require('express');
 const categories = require('../../routes/Categories/Catgories');
 const User = require('../../routes/People/User');
 const logOut = require('../../routes/auth/logOut');
-const Package = require('../../routes/Packages/Package');
+const Blog = require('../../routes/Blogs/Blog');
 const review = require('../../routes/Review/Review');
 const JournyStory = require('../../routes/Story/JournyStory');
 const Wishlist = require('../../routes/Wishlist/Wishlist');
@@ -23,8 +23,8 @@ router.use("/user" , User)
 //--- /api/v1/logOut
 router.use("/logout" , logOut)
 
-//--- /api/v1/Package
-router.use("/package" , Package);
+//--- /api/v1/Blog
+router.use("/blog" , Blog);
 
 //--- /api/v1/review
 router.use("/review" , review);
