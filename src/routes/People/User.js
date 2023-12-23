@@ -12,17 +12,9 @@ const User = require("express").Router()
 
 User.post('/',CreatePeople , CreateAccessToken)
 
-User.get('/all', VerifyUser , VerifyAdmin , getPeoples)
 
-User.get('/all', VerifyUser )
 
-User.get('/tour-guider', getTourGuiders )
-
-User.patch('/role/:id', VerifyUser , VerifyAdmin , ChangeRole)
-
-User.get('/guider-details/:id',TourGuiderDetails )
-
-User.patch('/set-addtional-info',VerifyUser , SetAddtionalInfo)
+// User.patch('/set-addtional-info',VerifyUser , SetAddtionalInfo)
 
 
 

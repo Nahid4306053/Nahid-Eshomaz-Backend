@@ -17,19 +17,20 @@ const BlogModel = new mongoose.Schema({
     type: String,
     required: true,
   },
-  views: {
-    type: Number,
-    required: true,
-  },
   author: {
     type: mongoose.Types.ObjectId,
-    ref : 'peoples',
+    ref : 'Peoples',
     required: true,
   },
+  views:[
+    {
+      user_id: mongoose.Types.ObjectId , 
+    }
+  ]
 },{
   timestamps:true,
 });
 
-const Blogs = new mongoose.model('package', BlogModel);
+const Blogs = new mongoose.model('blogs', BlogModel);
 
 module.exports = Blogs;

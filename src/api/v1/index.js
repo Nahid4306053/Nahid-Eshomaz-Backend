@@ -3,11 +3,7 @@ const categories = require('../../routes/Categories/Catgories');
 const User = require('../../routes/People/User');
 const logOut = require('../../routes/auth/logOut');
 const Blog = require('../../routes/Blogs/Blog');
-const review = require('../../routes/Review/Review');
-const JournyStory = require('../../routes/Story/JournyStory');
-const Wishlist = require('../../routes/Wishlist/Wishlist');
-const Payment = require('../../routes/Payment/Payment');
-const statistics = require('../../routes/statitics/Statitics');
+const Comment = require('../../routes/comment/Comment');
 const router = express.Router()
  
 router.get("/",(req,res)=>{
@@ -27,19 +23,9 @@ router.use("/logout" , logOut)
 router.use("/blog" , Blog);
 
 //--- /api/v1/review
-router.use("/review" , review);
+router.use("/comment" , Comment);
 
-//--- /api/v1/story
-router.use("/story" , JournyStory);
 
-//--- /api/v1/wishlist
-router.use("/wishlist" , Wishlist);
-
-//--- /api/v1/payment
-router.use("/payment" , Payment); 
-
-//--- /api/v1/statistics
-router.use("/statistics" , statistics); 
 
 
 

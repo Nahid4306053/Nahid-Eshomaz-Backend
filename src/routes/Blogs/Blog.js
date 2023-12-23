@@ -1,26 +1,32 @@
 const AddBlog = require('../../controllers/v1/Blogs/AddBlog');
-// const BookBlog = require('../../controllers/v1/Blogs/BookBlog');
-// const MyBookings = require('../../controllers/v1/Blogs/MyBookings');
-// const getBlogs = require('../../controllers/v1/Blogs/getBlogs');
-// const getSingelBlog = require('../../controllers/v1/Blogs/getSingelBlog');
-// const VerifyUser = require('../../middlewares/Auth/Verifyuser');
+const MyBlogs = require('../../controllers/v1/Blogs/MyBlogs');
+const getBlogs = require('../../controllers/v1/Blogs/getBlogs');
+const getSingelBlog = require('../../controllers/v1/Blogs/getSingelBlogs');
+const VerifyUser = require('../../middlewares/Auth/Verifyuser');
+const getPrevnext = require('../../controllers/v1/Blogs/Prevnext');
+const getBlogCountByCatgorey = require('../../controllers/v1/Blogs/BlogCountByCatgorey');
+const UpdateBlog = require('../../controllers/v1/Blogs/UpdateBlog');
 // const VerifyTourGuide = require("../../middlewares/Auth/VerifyTourGuide");
 // const ChangeStatus = require('../../controllers/v1/Blogs/ChangeStatus');
 // const CancelBooking = require('../../controllers/v1/Blogs/CancelBooking');
 // const CheckBooking = require('../../controllers/v1/Blogs/CheckBooking');
 const Blog = require('express').Router();
 
-Blog.post('/' , AddBlog);
+Blog.post('/' , VerifyUser,  AddBlog);
 
-// Blog.get('/all' , getBlogs);
+Blog.get('/all' , getBlogs);
 
-// Blog.get('/my-bookings' , VerifyUser ,  MyBookings );
+Blog.get('/singel/:id' , getSingelBlog );
 
-// Blog.get('/booking/:id' , VerifyUser , CheckBooking );
+Blog.get('/prevnext/:id' ,  getPrevnext);
 
-// Blog.get('/singel/:id' , getSingelBlog );
+Blog.get('/blogcountbycatgorey' ,  getBlogCountByCatgorey);
+ 
+Blog.get('/my-blogs' , VerifyUser ,  MyBlogs );
 
-// Blog.post('/book' , VerifyUser ,  BookBlog );
+Blog.put('/update/:id' , VerifyUser ,  UpdateBlog );
+
+Blog.put('/views/:id' , VerifyUser ,  UpdateBlog );
  
 // Blog.patch('/booking/status/:id' , VerifyUser ,  VerifyTourGuide , ChangeStatus );
 
