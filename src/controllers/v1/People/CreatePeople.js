@@ -4,23 +4,21 @@ const createError = require('http-errors');
 
 const CreatePeople = async (req, res, next) => {
   try {
-    let CurrentUser;
+
     if (req.body.email) {  
-      const isuserExits = await Peoples.findOne({
-        email: req.body.email
-      })
-    
+      const {displayName,photoURL} = req.body;
+      const isuserExits = await Peoples.findOne({email: req.body.email , uid:req.body.uid})
+
       if (isuserExits) {
         const result = await Peoples.findOneAndUpdate({
           email: req.body.email
-        }, req.body,{ new: true })
-        CurrentUser = result;
-
+        },{displayName:displayName,photoURL:photoURL},{ new: true })
+        req.CurrentUser = result; 
       } else {  
         const result = await Peoples(req.body).save()
-        CurrentUser = result;
+        req.CurrentUser = result;
       }    
-      req.CurrentUser = CurrentUser;
+      
       next()
     } else {
       next(createError(500, "There is Server side Error"))

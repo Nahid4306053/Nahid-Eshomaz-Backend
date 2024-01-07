@@ -14,7 +14,7 @@ const getBlogs = async (req,res,next)=>{
    query.categorey = req.query.categorey;
   }  
   if(req.query.sort){
-    sort.updatedAt = -1
+    sort.createdAt = -1
   }
   if(req.query.random){
    const randomIndexes = Array.from({ length: 5 }, () => Math.floor(Math.random() * totalDocsCount));

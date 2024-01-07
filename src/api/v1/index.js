@@ -22,7 +22,7 @@ router.use("/logout" , logOut)
 //--- /api/v1/Blog
 router.use("/blog" , Blog);
 
-//--- /api/v1/review
+//--- /api/v1/comment
 router.use("/comment" , Comment);
 
 

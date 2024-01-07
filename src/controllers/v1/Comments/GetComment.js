@@ -5,7 +5,6 @@ const createError = require('http-errors');
 
 const GetComment = async (req, res, next) => {
   try {
-  
    if(req.params.id){  
     const result = await comments.find({blog_id:req.params.id}).populate({
       path: 'commenter',
@@ -26,5 +25,4 @@ const GetComment = async (req, res, next) => {
 }
 
  
-
 module.exports = GetComment;

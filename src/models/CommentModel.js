@@ -15,8 +15,7 @@ const commentModel = new Schema({
     comment:{
      type: String,
      required: true,            
-    } 
-    ,
+    },
     replays:[
       {
         replayer:{

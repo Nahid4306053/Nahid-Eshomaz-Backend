@@ -5,10 +5,10 @@ const MyBlogs = async (req,res,next)=>{
  try{
   const page = req.query.page || 1;
   const limit = req.query.limit || 8  ; 
-  const role = req.CurrentUser.role 
+
   const totalData = await Blogs.countDocuments({author:req.CurrentUser._id});
  
-  const result = await  Blogs.find({author:req.CurrentUser._id}).skip((page-1) * limit).limit(limit)
+  const result = await  Blogs.find({author:req.CurrentUser._id}).sort({createdAt: -1}).skip((page-1) * limit).limit(limit)
   res.json({totalData:totalData , Blogs : result});
 
  }catch(err){
